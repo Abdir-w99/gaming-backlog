@@ -16,3 +16,8 @@ form {
   max-width: 350px;
   margin: 50px auto;
 }
+
+h3,
+p {
+  color: white;
+}
