@@ -12,6 +12,7 @@ form.addEventListener("submit", (event) => {
     <h3>${gameTitle.value}</h3>
     <p>Platform: ${platform.value}</p>
     <p>Status: ${status.value}</p>
+    <button class="editButton">Edit</button>
     <button class="deleteButton">Delete</button>
   </div>
 `;
@@ -23,5 +24,16 @@ form.addEventListener("submit", (event) => {
 gameList.addEventListener("click", (event) => {
   if (event.target.classList.contains("deleteButton")) {
     event.target.parentElement.remove();
+  }
+
+  if (event.target.classList.contains("editButton")) {
+    const gameCard = event.target.parentElement;
+    const title = gameCard.querySelector("h3");
+
+    const newTitle = prompt("Edit game title:", title.textContent);
+
+    if (newTitle) {
+      title.textContent = newTitle;
+    }
   }
 });
