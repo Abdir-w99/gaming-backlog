@@ -9,9 +9,9 @@ form.addEventListener("submit", (event) => {
 
   gameList.innerHTML += `
   <div>
-    <h3>${gameTitle.value}</h3>
-    <p>Platform: ${platform.value}</p>
-    <p>Status: ${status.value}</p>
+   <h3>${gameTitle.value}</h3>
+    <p class="platform">Platform: ${platform.value}</p>
+    <p class="status">Status: ${status.value}</p>
     <button class="editButton">Edit</button>
     <button class="deleteButton">Delete</button>
   </div>
@@ -29,11 +29,29 @@ gameList.addEventListener("click", (event) => {
   if (event.target.classList.contains("editButton")) {
     const gameCard = event.target.parentElement;
     const title = gameCard.querySelector("h3");
+    const platformText = gameCard.querySelector(".platform");
+    const statusText = gameCard.querySelector(".status");
 
     const newTitle = prompt("Edit game title:", title.textContent);
+    const newPlatform = prompt(
+      "Edit platform:",
+      platformText.textContent.replace("Platform: ", ""),
+    );
+    const newStatus = prompt(
+      "Edit status:",
+      statusText.textContent.replace("Status: ", ""),
+    );
 
     if (newTitle) {
       title.textContent = newTitle;
+    }
+
+    if (newPlatform) {
+      platformText.textContent = `Platform: ${newPlatform}`;
+    }
+
+    if (newStatus) {
+      statusText.textContent = `Status: ${newStatus}`;
     }
   }
 });
