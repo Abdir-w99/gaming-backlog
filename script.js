@@ -8,13 +8,20 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   gameList.innerHTML += `
-    <div>
-      <h3>${gameTitle.value}</h3>
-      <p>Platform: ${platform.value}</p>
-      <p>Status: ${status.value}</p>
-    </div>
-  `;
+  <div>
+    <h3>${gameTitle.value}</h3>
+    <p>Platform: ${platform.value}</p>
+    <p>Status: ${status.value}</p>
+    <button class="deleteButton">Delete</button>
+  </div>
+`;
 
   gameTitle.value = "";
   platform.value = "";
+});
+
+gameList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("deleteButton")) {
+    event.target.parentElement.remove();
+  }
 });
