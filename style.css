@@ -17,7 +17,36 @@ form {
   margin: 50px auto;
 }
 
-h3,
-p {
+input,
+select,
+form button {
+  padding: 10px;
+}
+
+#game-list {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
   color: white;
+}
+
+#game-list div {
+  background-color: #1f2937;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#game-list button {
+  padding: 6px 10px;
+  margin-right: 6px;
+}
+
+@media (min-width: 700px) {
+  .container {
+    max-width: 750px;
+  }
+
+  #game-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
